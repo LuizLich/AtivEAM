@@ -38,8 +38,6 @@ public class FragmentoTimePicker extends DialogFragment
         minuto = minute;
 
         TextView txt = (TextView) Fragmento2.frgto2.findViewById(R.id.texto_frg2);
-        if (txt != null) txt.setText(String.valueOf(hora) +
-                ":" + String.valueOf(minuto)
-        );
+        if (txt != null) txt.setText(String.valueOf(hora) + ":" + String.valueOf(minuto));
     }
 }
