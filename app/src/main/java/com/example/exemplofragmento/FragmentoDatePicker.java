@@ -38,6 +38,8 @@ public class FragmentoDatePicker extends DialogFragment implements DatePickerDia
                         "/" + String.valueOf(mes) +
                         "/" + String.valueOf(ano)
         );
+        // Imprimir a data no Logcat
+        Log.d("prints", "Data: " + dia + "/" + mes + "/" + ano);
     }
     public int getDia() {
         return dia;

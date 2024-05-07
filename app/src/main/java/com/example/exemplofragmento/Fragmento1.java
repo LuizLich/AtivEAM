@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.graphics.Color;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,8 @@ import org.w3c.dom.Text;
 
 
 public class Fragmento1 extends Fragment {
+    private FragmentoDatePicker datePicker;
+    private FragmentoTimePicker timePicker;
     private Button Botao1;
     private Button Botao2;
     private Button Botao3;
@@ -38,9 +41,8 @@ public class Fragmento1 extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d("prints", "botao 1");
-                DialogFragment fragmentoData = new FragmentoDatePicker();
-                fragmentoData.show(getParentFragmentManager(), "datePicker");
-
+                datePicker = new FragmentoDatePicker();
+                datePicker.show(getParentFragmentManager(), "datePicker");
             }
         });
 
@@ -49,9 +51,8 @@ public class Fragmento1 extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d("prints", "botao 2");
-                DialogFragment fragmentoTime = new FragmentoTimePicker();
-                fragmentoTime.show(getParentFragmentManager(), "timePicker");
-                
+                timePicker = new FragmentoTimePicker();
+                timePicker.show(getParentFragmentManager(), "timePicker");
             }
         });
 
@@ -70,9 +71,11 @@ public class Fragmento1 extends Fragment {
             public void onClick(View view) {
                 Log.d("prints", "botao 3");
                 TextView txt = (TextView) Fragmento2.frgto2.findViewById(R.id.texto_frg2);
-                if (txt != null) txt.setText(
-                        String.valueOf(texto1.getText())
-                );
+                if (txt != null) {
+                    String dataAtual = txt.getText().toString();
+                    txt.setTextColor(Color.BLACK);
+                    txt.setText(dataAtual + "\nDescrição: " + String.valueOf(texto1.getText()));
+                }
             }
         });
 
